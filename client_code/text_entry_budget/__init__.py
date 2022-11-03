@@ -23,14 +23,14 @@ class text_entry_budget(text_entry_budgetTemplate):
     
     if self.text_box_1.text in [None, "", 0]:
       self.text_box_1.role = 'outlined-error'
-      Notification('You must submit a percent greater than or equal to 1%.', style='danger', title='Invalid Bid Budget Submission').show()
-    elif all([val <1, val>0]):
+      #Notification('You must submit a percent greater than or equal to 50%.', style='danger', title='Invalid Bid Budget Submission').show()
+    elif all([val <1, val>=50]):
       self.text_box_1.role = 'outlined-error'
-      Notification('You must submit a percent greater than or equal to 1%.', style='danger',title='Invalid Bid Budget Submission').show()
-    elif val<0:
+      #Notification('You must submit a percent greater than or equal to 50%.', style='danger',title='Invalid Bid Budget Submission').show()
+    elif val<50:
       self.text_box_1.role = 'outlined-error'
-      Notification('You must submit a percent greater than or equal to 1%.', style='danger',title='Invalid Bid Budget Submission').show()
-      self.text_box_1.text = 0
+      #Notification('You must submit a percent greater than or equal to 50%.', style='danger',title='Invalid Bid Budget Submission').show()
+      #self.text_box_1.text = 50
       val = int(self.text_box_1.text)
       
     else:

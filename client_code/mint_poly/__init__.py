@@ -25,7 +25,7 @@ class mint_poly(mint_polyTemplate):
     
   def check_entry(self):
     self.entry = [self.text_entry_amount.evm_input, self.text_entry_budget.percent]
-    self.valid_entry =[b>0 for b in self.entry]
+    self.valid_entry =all([self.text_entry_amount.evm_input>0, self.text_entry_budget.percent>=50])
     if self.valid_entry:
       self.button_mint_poly.text = "Mint {:,f} POLY".format(self.text_entry_amount.input)
     self.valid_allowance=False

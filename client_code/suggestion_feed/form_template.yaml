@@ -1,0 +1,36 @@
+container:
+  type: ColumnPanel
+  properties: {col_widths: '{}'}
+components:
+- type: DataGrid
+  properties:
+    role: null
+    columns:
+    - {id: DCZJOU, title: User, data_key: user, $$hashKey: 'object:78665'}
+    - {id: HQNZEQ, title: Poly Balance, data_key: poly_balance, $$hashKey: 'object:78666'}
+    - {id: ORYSFA, title: Hdrn Balance, data_key: hdrn_balance, $$hashKey: 'object:78667'}
+    - {id: PKOKBT, title: Liquidation Id, data_key: liquidation_id, $$hashKey: 'object:78668'}
+    - {id: DIBCDA, title: Hsi Address, data_key: hsi_address, $$hashKey: 'object:78669'}
+    - {id: SASLST, title: Raw Message, data_key: raw_message, $$hashKey: 'object:78670'}
+    - {id: GCNLDX, title: Max Hdrn_bid, data_key: max_hdrn_bid, $$hashKey: 'object:78671'}
+    - {id: HUEZMP, title: Signature, data_key: signature, $$hashKey: 'object:78672'}
+    auto_header: true
+    tooltip: ''
+    border: ''
+    foreground: ''
+    rows_per_page: 20
+    visible: true
+    wrap_on: never
+    show_page_controls: true
+    spacing_above: small
+    spacing_below: small
+    background: ''
+  name: data_grid_1
+  layout_properties: {grid_position: 'JBXGKB,ADEAWF'}
+  components:
+  - type: RepeatingPanel
+    properties: {spacing_above: none, spacing_below: none, item_template: suggestion_feed.RowTemplate1}
+    name: repeating_panel_1
+    layout_properties: {}
+is_package: true
+component: []

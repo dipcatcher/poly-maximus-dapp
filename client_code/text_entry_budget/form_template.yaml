@@ -1,0 +1,65 @@
+properties: []
+is_package: true
+events:
+- {name: change, default_event: true}
+component:
+- type: TextBox
+  properties: {role: outlined, align: left, hide_text: false, tooltip: '', placeholder: '',
+    border: '', enabled: true, foreground: '', visible: true, text: '', font_size: null,
+    font: '', spacing_above: small, type: text, spacing_below: small, italic: false,
+    background: '', bold: false, underline: false}
+  name: text_box_1
+  layout_properties: {grid_position: 'MKPVQJ,LBRPDN', slot: default}
+- type: FlowPanel
+  properties: {role: null, spacing: none, align: left, tooltip: '', border: '', foreground: '',
+    visible: true, spacing_above: small, spacing_below: small, background: ''}
+  name: flow_panel_1
+  layout_properties: {slot: float}
+  components:
+  - type: Button
+    properties: {role: link-b, align: left, tooltip: '', border: '', enabled: true,
+      foreground: '#06132D', visible: true, text: MAX, font_size: null, font: '',
+      spacing_above: medium, icon_align: left, spacing_below: small, italic: false,
+      background: '#7C7F91', bold: false, underline: false, icon: ''}
+    name: button_1
+    layout_properties: {slot: default, width: 421, row: WBBWOY, width_xs: 6, col_xs: 0}
+  - type: Label
+    properties: {role: null, align: left, tooltip: '', border: '', foreground: '#7C7F91',
+      visible: true, text: '   HDRN', font_size: null, font: '', spacing_above: none,
+      icon_align: left, spacing_below: small, italic: false, background: '', bold: false,
+      underline: false, icon: ''}
+    name: label_1
+    layout_properties: {row: WBBWOY, width_xs: 6, col_xs: 6, width: 420, slot: default}
+custom_component: true
+components:
+- type: TextBox
+  properties: {role: outlined, align: left, hide_text: false, tooltip: '', placeholder: '',
+    border: '', enabled: true, foreground: '', visible: true, text: '90', font_size: null,
+    font: '', spacing_above: small, type: number, spacing_below: small, italic: false,
+    background: '', bold: false, underline: false}
+  name: text_box_1
+  layout_properties: {grid_position: 'MKPVQJ,LBRPDN', slot: default}
+  event_bindings: {change: text_box_1_change}
+- type: FlowPanel
+  properties: {role: null, spacing: none, align: left, tooltip: '', border: '', foreground: '',
+    visible: true, spacing_above: small, spacing_below: small, background: ''}
+  name: flow_panel_1
+  layout_properties: {slot: float}
+  components:
+  - type: Label
+    properties: {role: null, align: left, tooltip: '', border: '', foreground: '#7C7F91',
+      visible: true, text: '%', font_size: null, font: '', spacing_above: none, icon_align: left,
+      spacing_below: small, italic: false, background: '', bold: false, underline: false,
+      icon: ''}
+    name: label_1
+    layout_properties: {row: WBBWOY, width_xs: 6, col_xs: 6, width: 420, slot: default}
+container:
+  type: HtmlTemplate
+  properties: {tooltip: '', background: '', foreground: '', border: '', visible: true,
+    role: null, html: "<div id=\"parent\">\n    <div id=\"child\" class=\"floatingz\"\
+      >\n      <div anvil-slot-repeat=\"float\" class=\"anvil-measure-this\"></div>\n\
+      \      <div class=\"placeholder drop-here anvil-designer-only\" anvil-if-slot-empty=\"\
+      float\" anvil-drop-slot=\"float\">btn</div>\n    </div>\n</div>\n\n<style>\n\
+      \n\n\n  .floatingz {\n    position: fixed;\n    right: 8px;\n    top: -3px;\n\
+      \    margin:0px;\n}\n  .a {\n    position:fixed;\n  }\n  #parent {\n  position:relative;\n\
+      }\n#child {\n  position:absolute;\n  \n}\n</style>"}

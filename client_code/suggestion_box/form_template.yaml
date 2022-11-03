@@ -1,0 +1,134 @@
+container:
+  type: ColumnPanel
+  properties: {col_widths: '{}'}
+components:
+- type: FlowPanel
+  properties: {role: null, spacing: medium, align: center, tooltip: '', border: '',
+    foreground: '', visible: true, spacing_above: small, spacing_below: small, background: ''}
+  name: flow_panel_1
+  layout_properties:
+    col_widths: {}
+    grid_position: SHFMXC,JDJVHT
+  components:
+  - type: ColumnPanel
+    properties: {role: elevated-card, tooltip: '', border: '', foreground: '', visible: true,
+      wrap_on: mobile, col_spacing: medium, spacing_above: small, col_widths: '{}',
+      spacing_below: small, background: ''}
+    name: outlined_card_1
+    layout_properties: {grid_position: 'TGOLSM,EGQCIZ'}
+    components:
+    - type: Label
+      properties: {role: title, align: center, tooltip: '', border: '', foreground: white,
+        visible: true, text: Suggestion Box, font_size: 24, font: '', spacing_above: small,
+        icon_align: left, spacing_below: small, italic: false, background: '', bold: true,
+        underline: false, icon: ''}
+      name: label_1
+      layout_properties: {grid_position: 'ZJGPZE,DOFOOF'}
+    - type: Label
+      properties: {role: null, align: center, tooltip: '', border: '', foreground: '#7C7f91',
+        visible: true, text: Give suggestions and ideas to the Poly Maximus Executor regarding bid execution strategy.,
+        font_size: 16, font: '', spacing_above: small, icon_align: left, spacing_below: small,
+        italic: false, background: '', bold: false, underline: false, icon: ''}
+      name: label_days_remaining
+      layout_properties: {grid_position: 'WCMABL,JLFCIH'}
+    - type: ColumnPanel
+      properties: {col_widths: '{}'}
+      name: column_panel_1
+      layout_properties: {grid_position: 'THUCIN,ERILKY'}
+      components:
+      - type: Label
+        properties: {role: null, align: left, tooltip: '', border: '', foreground: white,
+          visible: true, text: 'Which liquidation do you think the Executor should
+            target?', font_size: 16, font: '', spacing_above: small, icon_align: left,
+          spacing_below: small, italic: false, background: '', bold: false, underline: false,
+          icon: ''}
+        name: label_days_remaining_copy
+        layout_properties:
+          col_widths: {}
+          grid_position: VTTWYS,EXQRTD
+    - type: RichText
+      properties: {role: link-no-pad, align: left, tooltip: '', enable_slots: true,
+        border: '', foreground: '', visible: true, font_size: null, content: 'Liquidation
+          ID {i}', font: '', spacing_above: small, spacing_below: none, data: null,
+        background: '', format: restricted_html}
+      name: rich_text_1
+      layout_properties: {grid_position: 'FAPFXD,FZHLSZ'}
+      components:
+      - type: Link
+        properties: {role: link-no-pad, url: '', align: left, tooltip: '', border: '',
+          foreground: '', visible: true, text: ' ', font_size: null, wrap_on: mobile,
+          font: '', col_spacing: medium, spacing_above: none, icon_align: left, col_widths: '',
+          spacing_below: none, italic: false, background: '', bold: false, underline: false,
+          icon: 'fa:question-circle'}
+        name: link_1
+        layout_properties: {slot: i}
+        event_bindings: {click: link_1_click}
+    - type: TextBox
+      properties: {role: null, align: left, hide_text: false, tooltip: '', placeholder: '',
+        border: '', enabled: true, foreground: '', visible: true, text: '', font_size: null,
+        font: '', spacing_above: small, type: number, spacing_below: small, italic: false,
+        background: '', bold: false, underline: false}
+      name: text_box_liquidation_id
+      layout_properties: {grid_position: 'GBORHH,HCGSYZ', slot: a, width: 307.33299999999997}
+      event_bindings: {change: text_box_liquidation_id_change}
+    - type: Label
+      properties: {role: null, align: center, tooltip: '', border: '', foreground: '',
+        visible: true, text: '- OR -', font_size: null, font: '', spacing_above: none,
+        icon_align: left, spacing_below: none, italic: false, background: '', bold: false,
+        underline: false, icon: ''}
+      name: label_5
+      layout_properties: {grid_position: 'ILNGKG,EESQSV'}
+    - type: Label
+      properties: {role: null, align: left, tooltip: '', border: '', foreground: '',
+        visible: true, text: HSI Address, font_size: null, font: '', spacing_above: small,
+        icon_align: left, spacing_below: small, italic: false, background: '', bold: false,
+        underline: false, icon: ''}
+      name: label_4
+      layout_properties: {grid_position: 'MZTUEO,NDXBHH'}
+    - type: TextBox
+      properties: {role: null, align: left, hide_text: false, tooltip: '', placeholder: '',
+        border: '', enabled: true, foreground: '', visible: true, text: '', font_size: null,
+        font: '', spacing_above: small, type: text, spacing_below: small, italic: false,
+        background: '', bold: false, underline: false}
+      name: text_box_hsi_address
+      layout_properties: {grid_position: 'OTHZRS,LAHTKV'}
+    - type: Label
+      properties: {role: null, align: left, tooltip: '', border: '', foreground: '',
+        visible: true, text: Maximum HDRN Bid Amount, font_size: null, font: '', spacing_above: small,
+        icon_align: left, spacing_below: small, italic: false, background: '', bold: false,
+        underline: false, icon: ''}
+      name: label_3
+      layout_properties: {grid_position: 'UJIMIR,YAUOHL'}
+    - type: TextBox
+      properties: {role: null, align: left, hide_text: false, tooltip: '', placeholder: '',
+        border: '', enabled: true, foreground: '', visible: true, text: '', font_size: null,
+        font: '', spacing_above: small, type: number, spacing_below: small, italic: false,
+        background: '', bold: false, underline: false}
+      name: text_box_bid_amount
+      layout_properties: {grid_position: 'PZYHWG,XTITRU'}
+    - type: Label
+      properties: {role: null, align: left, tooltip: '', border: '', foreground: '',
+        visible: true, text: Notes, font_size: null, font: '', spacing_above: small,
+        icon_align: left, spacing_below: small, italic: false, background: '', bold: false,
+        underline: false, icon: ''}
+      name: label_6
+      layout_properties: {grid_position: 'CPWPBN,ZRTQUA'}
+    - type: TextArea
+      properties: {height: 110}
+      name: text_area_notes
+      layout_properties: {grid_position: 'MULAJK,WPFHGG'}
+    - type: ColumnPanel
+      properties: {col_widths: '{}'}
+      name: column_panel_2
+      layout_properties: {grid_position: 'DUBPWA,BOPSAR'}
+      components:
+      - type: Button
+        properties: {role: filled-button, align: full, tooltip: '', border: '', enabled: true,
+          foreground: white, visible: true, text: Submit, font_size: null, font: '',
+          spacing_above: small, icon_align: left, spacing_below: small, italic: false,
+          background: '#00D1FF', bold: false, underline: false, icon: ''}
+        name: button_mint_poly
+        layout_properties: {grid_position: 'LEVKQE,AAINEB'}
+        event_bindings: {click: button_mint_poly_click}
+is_package: true
+component: []

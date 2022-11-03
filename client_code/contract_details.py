@@ -6,7 +6,7 @@ from anvil.tables import app_tables
 def get_contract_details(ticker):
   tokens = {
     "POLY": {
-      'address' :"0xB3B8965bBbE72df6602899fb2A88212302D501Df",
+      'address' :"0xFd9cf3a413cED20C68028116EEB1EdcA434B7998",
       'abi' : [
   	{
   		"inputs": [
@@ -929,7 +929,7 @@ def get_contract_details(ticker):
 ]
     },
     "WATER": {
-      'address' :"0xccF382D0b1f92EEbE34B4d12AFe98F7B9BbB9508",
+      'address' :"0xa5a46f40E5c01E6D6758B4E39714630f2ce2a3d4",
       'abi' : [
       	{
       		"inputs": [

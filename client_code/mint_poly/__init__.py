@@ -53,7 +53,7 @@ class mint_poly(mint_polyTemplate):
     self.label_poly_balance.text = "{:,f}".format(self.poly_balance)
     self.allowance = int(self.hedron_contract.allowance(get_open_form().address, get_open_form().POLY_CONTRACT_ADDRESS).toString())
     if self.allowance >0:
-      self.label_approved_hdrn.text = "✅ {:,} HDRN Approved".format(self.allowance/10**9)
+      self.label_approved_hdrn.text = "✅ {:,} HDRN Approved".format(int(self.allowance/10**9))
       self.label_approved_hdrn.visible = True
     else:
       self.label_approved_hdrn.visible = False
@@ -91,7 +91,14 @@ class mint_poly(mint_polyTemplate):
     if self.text_entry_amount.evm_input == 0 :
       alert('You must enter an amount greater than zero', title="No Wallet Connection Found")
       return None
-    anvil.js.await_promise(get_open_form().poly_contract_write.mintPoly(self.text_entry_amount.evm_input, self.text_entry_budget.percent))
+    try:
+      anvil.js.await_promise(get_open_form().poly_contract_write.mintPoly(self.text_entry_amount.evm_input, self.text_entry_budget.percent))
+    except Exception as e:
+      if 'finalizeMinting' in str(e):
+        Notification('The contract is transitioning into the next part of the minting phase. Try again in a few minutes once finalizeMinting() function has been called on the contract and minting resumes.', style='warning',title='Try again').show()
+      elif 'must still be ongoing' in str(e):
+        Notification('The Mint Phase is over.', style='warning',title='Minting is Over').show()
+      
     self.button_mint_poly.enabled=False
     while current == int(self.poly_contract.balanceOf(get_open_form().address).toString())/(10**9):
       time.sleep(1)

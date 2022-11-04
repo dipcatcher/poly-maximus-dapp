@@ -133,6 +133,14 @@ components:
         properties: {}
         name: column_panel_budget_entry
         layout_properties: {row: XAXKFB, width_xs: 3, col_xs: 0}
+      - type: Label
+        properties: {role: body, align: left, tooltip: '', border: '', foreground: '#7C7f91',
+          visible: true, text: must be between 50-100%, font_size: null, font: '',
+          spacing_above: none, icon_align: left, spacing_below: none, italic: false,
+          background: '', bold: false, underline: false, icon: ''}
+        name: label_6
+        layout_properties: {row: NAMMRE, width_xs: 12, col_xs: 0, width: 202.741,
+          grid_position: 'KWCTXE,NZPNGP'}
     - type: ColumnPanel
       properties: {col_widths: '{}'}
       name: column_panel_2

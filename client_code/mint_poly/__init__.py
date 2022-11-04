@@ -46,7 +46,7 @@ class mint_poly(mint_polyTemplate):
     
     self.poly_contract = get_open_form().poly_contract_read
     self.hedron_contract = get_open_form().hedron_contract_read
-    self.days_remaining = self.poly_contract.MINTING_PHASE_END().toNumber() - self.poly_contract.getCurrentDay().toNumber()
+    self.days_remaining = self.poly_contract.LAST_POSSIBLE_MINTING_DAY().toNumber() - self.poly_contract.getCurrentDay().toNumber()
     self.hedron_balance = int(self.hedron_contract.balanceOf(get_open_form().address).toString())/(10**9)
     self.label_hedron_balance.text = "{:,f}".format(self.hedron_balance)
     self.poly_balance =int(self.poly_contract.balanceOf(get_open_form().address).toString())/(10**9)
@@ -101,6 +101,8 @@ class mint_poly(mint_polyTemplate):
 
     self.refresh_tbs()
     self.refresh_page()
+    alert(share(),buttons=[], title='Congrats 🎉')
+    
 
 
   
@@ -151,7 +153,7 @@ class mint_poly(mint_polyTemplate):
 
   def link_2_click(self, **event_args):
     """This method is called when the link is clicked"""
-    alert(share(),buttons=[], title='Share Your POLY Pride')
+    alert(share(),buttons=[], title='Congrats 🎉')
 
 
   

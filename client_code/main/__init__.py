@@ -82,6 +82,7 @@ class main(mainTemplate):
         text = "Make sure you are on the correct network and that you succesfully connected your account with this website in the MetaMask prompt."
       else:
         text = "Unable to connect. Make sure you are on an ethereum enabled web-browser connected to MetaMask. Error Message: {}".format(e)
+      raise e
       alert(text)
   
 

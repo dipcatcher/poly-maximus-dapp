@@ -6,6 +6,7 @@ import anvil.tables.query as q
 from anvil.tables import app_tables
 from ..text_entry_amount import text_entry_amount
 from ..text_entry_budget import text_entry_budget
+from ..share import share
 import time
 import anvil.http
 import anvil.js
@@ -13,10 +14,8 @@ class mint_poly(mint_polyTemplate):
   def __init__(self, **properties):
     # Set Form properties and Data Bindings.
     self.init_components(**properties)
-    t = "I just minted POLY at https://poly.maximus.cash"
-    text = anvil.http.url_encode(t)
-    url = "https://twitter.com/intent/tweet?text={}".format(text)
-    self.link_2.url = url
+    
+    
 
     self.refresh_tbs()
   def refresh_tbs(self):
@@ -149,5 +148,10 @@ class mint_poly(mint_polyTemplate):
         event_args['sender'].text='POLY Token Added'
       except Exception as e:
         print(e)
+
+  def link_2_click(self, **event_args):
+    """This method is called when the link is clicked"""
+    alert(share(),buttons=[], title='Share Your POLY Pride')
+
 
   

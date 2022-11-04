@@ -7,11 +7,17 @@ from anvil.tables import app_tables
 from ..text_entry_amount import text_entry_amount
 from ..text_entry_budget import text_entry_budget
 import time
+import anvil.http
 import anvil.js
 class mint_poly(mint_polyTemplate):
   def __init__(self, **properties):
     # Set Form properties and Data Bindings.
     self.init_components(**properties)
+    t = "I just minted POLY at https://poly.maximus.cash"
+    text = anvil.http.url_encode(t)
+    url = "https://twitter.com/intent/tweet?text={}".format(text)
+    self.link_2.url = url
+
     self.refresh_tbs()
   def refresh_tbs(self):
     self.text_entry_amount = text_entry_amount(mint_poly_form = self)
@@ -144,3 +150,4 @@ class mint_poly(mint_polyTemplate):
       except Exception as e:
         print(e)
 
+  

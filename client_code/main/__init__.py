@@ -34,7 +34,7 @@ class main(mainTemplate):
     l = event_args['sender']
     self.current = l
     
-    if "mint" in l.text.lower():
+    if "poly" in l.text.lower():
       self.content_panel.clear()
       mp = mint_poly(main = self)
       self.content_panel.add_component(mp)

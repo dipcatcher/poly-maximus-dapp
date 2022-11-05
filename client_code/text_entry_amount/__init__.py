@@ -45,10 +45,17 @@ class text_entry_amount(text_entry_amountTemplate):
   def button_1_click(self, **event_args):
     """This method is called when the button is clicked"""
     if get_open_form().address is not None:
-      #self.text_box_1.text = float(get_open_form().hedron_contract_read.balanceOf(get_open_form().address).toString())/(10**9)
-      display = "{:.9f}".format(int(get_open_form().hedron_contract_read.balanceOf(get_open_form().address).toString())/(10**9))
+      #self.text_box_1.text = "{float(get_open_form().hedron_contract_read.balanceOf(get_open_form().address).toString())/(10**9)
+      raw_balance = int(get_open_form().hedron_contract_read.balanceOf(get_open_form().address).toString())
+      
+      
+      display = "{:.9f}".format(raw_balance/(10**9))
+      
       self.text_box_1.text = display
+      
       self.text_box_1_change(sender=self.text_box_1)
+      if int(float(self.text_box_1.text*10**9)) >raw_balance:
+        self.evm_input = raw_balance
     else:
       alert("Connect to MetaMask to mint POLY.")
       

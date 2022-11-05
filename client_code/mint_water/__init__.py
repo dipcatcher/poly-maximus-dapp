@@ -25,6 +25,9 @@ class mint_water(mint_waterTemplate):
 
 
   def check_entry(self):
+    if get_open_form().address is None:
+      Notification('You must connect to your MetaMask wallet to mint WATER.', style='warning', title='Wallet Not Connected').show()
+      return False
     self.entry = [self.text_entry_amount.evm_input]
     self.valid_entry =[b>0 for b in self.entry]
     if self.valid_entry:

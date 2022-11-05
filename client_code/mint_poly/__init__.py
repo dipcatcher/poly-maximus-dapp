@@ -6,12 +6,17 @@ import anvil.tables.query as q
 from anvil.tables import app_tables
 from ..text_entry_amount import text_entry_amount
 from ..text_entry_budget import text_entry_budget
+from ..share import share
 import time
+import anvil.http
 import anvil.js
 class mint_poly(mint_polyTemplate):
   def __init__(self, **properties):
     # Set Form properties and Data Bindings.
     self.init_components(**properties)
+    
+    
+
     self.refresh_tbs()
   def refresh_tbs(self):
     self.text_entry_amount = text_entry_amount(mint_poly_form = self)
@@ -25,7 +30,7 @@ class mint_poly(mint_polyTemplate):
     
   def check_entry(self):
     self.entry = [self.text_entry_amount.evm_input, self.text_entry_budget.percent]
-    self.valid_entry =[b>0 for b in self.entry]
+    self.valid_entry =all([self.text_entry_amount.evm_input>0, self.text_entry_budget.percent>=50])
     if self.valid_entry:
       self.button_mint_poly.text = "Mint {:,f} POLY".format(self.text_entry_amount.input)
     self.valid_allowance=False
@@ -41,14 +46,14 @@ class mint_poly(mint_polyTemplate):
     
     self.poly_contract = get_open_form().poly_contract_read
     self.hedron_contract = get_open_form().hedron_contract_read
-    self.days_remaining = self.poly_contract.MINTING_PHASE_END().toNumber() - self.poly_contract.getCurrentDay().toNumber()
+    self.days_remaining = self.poly_contract.LAST_POSSIBLE_MINTING_DAY().toNumber() - self.poly_contract.getCurrentDay().toNumber()
     self.hedron_balance = int(self.hedron_contract.balanceOf(get_open_form().address).toString())/(10**9)
     self.label_hedron_balance.text = "{:,f}".format(self.hedron_balance)
     self.poly_balance =int(self.poly_contract.balanceOf(get_open_form().address).toString())/(10**9)
     self.label_poly_balance.text = "{:,f}".format(self.poly_balance)
     self.allowance = int(self.hedron_contract.allowance(get_open_form().address, get_open_form().POLY_CONTRACT_ADDRESS).toString())
     if self.allowance >0:
-      self.label_approved_hdrn.text = "✅ {:,} HDRN Approved".format(self.allowance/10**9)
+      self.label_approved_hdrn.text = "✅ {:,} HDRN Approved".format(int(self.allowance/10**9))
       self.label_approved_hdrn.visible = True
     else:
       self.label_approved_hdrn.visible = False
@@ -86,7 +91,14 @@ class mint_poly(mint_polyTemplate):
     if self.text_entry_amount.evm_input == 0 :
       alert('You must enter an amount greater than zero', title="No Wallet Connection Found")
       return None
-    anvil.js.await_promise(get_open_form().poly_contract_write.mintPoly(self.text_entry_amount.evm_input, self.text_entry_budget.percent))
+    try:
+      anvil.js.await_promise(get_open_form().poly_contract_write.mintPoly(self.text_entry_amount.evm_input, self.text_entry_budget.percent))
+    except Exception as e:
+      if 'finalizeMinting' in str(e):
+        Notification('The contract is transitioning into the next part of the minting phase. Try again in a few minutes once finalizeMinting() function has been called on the contract and minting resumes.', style='warning',title='Try again').show()
+      elif 'must still be ongoing' in str(e):
+        Notification('The Mint Phase is over.', style='warning',title='Minting is Over').show()
+      
     self.button_mint_poly.enabled=False
     while current == int(self.poly_contract.balanceOf(get_open_form().address).toString())/(10**9):
       time.sleep(1)
@@ -96,6 +108,8 @@ class mint_poly(mint_polyTemplate):
 
     self.refresh_tbs()
     self.refresh_page()
+    alert(share(),buttons=[], title='Congratulations 🎉')
+    
 
 
   
@@ -144,3 +158,4 @@ class mint_poly(mint_polyTemplate):
       except Exception as e:
         print(e)
 
+  

@@ -57,6 +57,8 @@ class main(mainTemplate):
       self.metamask.establish_connection()
       self.address= self.metamask.address
       self.provider= self.metamask.provider
+      print(self.provider.getNetwork())
+      self.chain_id = self.provider.getNetwork().chainId
       self.signer=self.metamask.signer
       self.POLY_CONTRACT_ADDRESS, self.POLY_ABI = contract_details.get_contract_details('POLY')
       self.poly_contract_read = ethers.Contract(self.POLY_CONTRACT_ADDRESS,self.POLY_ABI,self.provider)
@@ -82,6 +84,7 @@ class main(mainTemplate):
         text = "Make sure you are on the correct network and that you succesfully connected your account with this website in the MetaMask prompt."
       else:
         text = "Unable to connect. Make sure you are on an ethereum enabled web-browser connected to MetaMask. Error Message: {}".format(e)
+      raise e
       alert(text)
   
 

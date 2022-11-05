@@ -49,7 +49,9 @@ class mint_poly(mint_polyTemplate):
     self.days_remaining = self.poly_contract.LAST_POSSIBLE_MINTING_DAY().toNumber() - self.poly_contract.getCurrentDay().toNumber()
     self.hedron_balance = int(self.hedron_contract.balanceOf(get_open_form().address).toString())/(10**9)
     self.label_hedron_balance.text = "{:,f}".format(self.hedron_balance)
-    self.poly_balance =int(self.poly_contract.balanceOf(get_open_form().address).toString())/(10**9)
+    self.raw_poly_balance = int(self.poly_contract.balanceOf(get_open_form().address).toString())
+    self.poly_balance =self.raw_poly_balance/(10**9)
+    
     self.label_poly_balance.text = "{:,f}".format(self.poly_balance)
     self.allowance = int(self.hedron_contract.allowance(get_open_form().address, get_open_form().POLY_CONTRACT_ADDRESS).toString())
     if self.allowance >0:
@@ -86,7 +88,7 @@ class mint_poly(mint_polyTemplate):
     if get_open_form().address is None:
       alert('You must sign in with MetaMask to Mint Poly', title="No Wallet Connection Found")
       return None
-    current = self.poly_balance
+    current = self.raw_poly_balance
     #alert(["Minting: ", self.text_entry_amount.evm_input, self.text_entry_amount.input])
     if self.text_entry_amount.evm_input == 0 :
       alert('You must enter an amount greater than zero', title="No Wallet Connection Found")
@@ -98,9 +100,10 @@ class mint_poly(mint_polyTemplate):
         Notification('The contract is transitioning into the next part of the minting phase. Try again in a few minutes once finalizeMinting() function has been called on the contract and minting resumes.', style='warning',title='Try again').show()
       elif 'must still be ongoing' in str(e):
         Notification('The Mint Phase is over.', style='warning',title='Minting is Over').show()
-      
+      else:
+        alert("MetaMask error: {}".format(str(e)), title='Transaction not Processed')
     self.button_mint_poly.enabled=False
-    while current == int(self.poly_contract.balanceOf(get_open_form().address).toString())/(10**9):
+    while current == int(self.poly_contract.balanceOf(get_open_form().address).toString()):
       time.sleep(1)
       
     self.button_mint_poly.enabled=True

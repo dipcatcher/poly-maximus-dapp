@@ -57,6 +57,8 @@ class main(mainTemplate):
       self.metamask.establish_connection()
       self.address= self.metamask.address
       self.provider= self.metamask.provider
+      print(self.provider.getNetwork())
+      self.chain_id = self.provider.getNetwork().chainId
       self.signer=self.metamask.signer
       self.POLY_CONTRACT_ADDRESS, self.POLY_ABI = contract_details.get_contract_details('POLY')
       self.poly_contract_read = ethers.Contract(self.POLY_CONTRACT_ADDRESS,self.POLY_ABI,self.provider)

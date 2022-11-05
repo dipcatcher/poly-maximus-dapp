@@ -11,7 +11,7 @@ class share(shareTemplate):
     self.init_components(**properties)
     
     party.confetti(anvil.js.get_dom_node(self))
-    t = "I just minted POLY 🅿️ \nJoin the Poly Maximus HDRN pool to bid on the best HSI HEX stakes together 👇\nhttps://poly.maximus.cash"
+    t = "I just minted $POLY! 🅿️ \nJoin the Poly Maximus HDRN pool to bid on the best HSI HEX stakes together 👇\nhttps://poly.maximus.cash"
     text = anvil.http.url_encode(t)
     url = "https://twitter.com/intent/tweet?text={}".format(text)
     self.link_1.url = url

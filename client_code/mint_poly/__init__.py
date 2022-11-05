@@ -108,7 +108,7 @@ class mint_poly(mint_polyTemplate):
 
     self.refresh_tbs()
     self.refresh_page()
-    alert(share(),buttons=[], title='Congrats 🎉')
+    alert(share(),buttons=[], title='Congratulations 🎉')
     
 
 
@@ -157,10 +157,5 @@ class mint_poly(mint_polyTemplate):
         event_args['sender'].text='POLY Token Added'
       except Exception as e:
         print(e)
-
-  def link_2_click(self, **event_args):
-    """This method is called when the link is clicked"""
-    alert(share(),buttons=[], title='Congrats 🎉')
-
 
   

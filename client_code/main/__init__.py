@@ -25,7 +25,12 @@ class main(mainTemplate):
     self.init_components(**properties)
     self.is_ethereum = is_ethereum
     self.address=None
-    self.menu_click(sender=self.link_mint)
+    if 'water' in anvil.server.get_app_origin():
+      start = self.link_water
+    else:
+      start = self.link_mint
+    
+    self.menu_click(sender=start)
     
 
     # Any code you write here will run when the form opens.
@@ -57,7 +62,7 @@ class main(mainTemplate):
       self.metamask.establish_connection()
       self.address= self.metamask.address
       self.provider= self.metamask.provider
-      print(self.provider.getNetwork())
+      
       self.chain_id = self.provider.getNetwork().chainId
       self.signer=self.metamask.signer
       self.POLY_CONTRACT_ADDRESS, self.POLY_ABI = contract_details.get_contract_details('POLY')

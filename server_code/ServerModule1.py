@@ -66,7 +66,8 @@ def save_treasury_value():
   data['POLY Supply']  = psraw / (10**9)
   data['HDRN per POLY'] = data['Total HDRN'] / data['POLY Supply']
   data['Day'] = last_full_day
-  
+  daily_data = app_tables.daily_data.add_row(**data)
+  app_tables.latest_day.get(name='latest').update(daily_data=daily_data)
   return data
   
   

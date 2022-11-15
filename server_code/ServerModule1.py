@@ -62,8 +62,8 @@ def save_treasury_value(day = None):
   data['Staked HDRN'] = stakeAmount / (10**9)
   data['Total HDRN'] = data['Liquid HDRN'] + data['Staked HDRN']
   data['Stake Points'] = stakePoints
-  proportion  = (stakePoints/icsa_contract.functions.hdrnPoolPoints(last_full_day).call())/(10**9)
-  data['ICSA Yield'] = (icsa_contract.functions.hdrnPoolPayout(last_full_day).call()-icsa_contract.functions.hdrnPoolPayout(stakeStart).call())*proportion
+  proportion  = stakePoints#(stakePoints/icsa_contract.functions.hdrnPoolPoints(last_full_day).call())/(10**9)
+  data['ICSA Yield'] = payoutPreCapitalAddIcsa + (icsa_contract.functions.hdrnPoolPayout(last_full_day).call()-icsa_contract.functions.hdrnPoolPayout(capitalAdded).call())*proportion/(10**27)
   
   psraw=poly_contract.functions.totalSupply().call()
   data['POLY Supply']  = psraw / (10**9)

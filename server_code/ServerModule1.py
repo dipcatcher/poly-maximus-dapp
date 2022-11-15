@@ -45,7 +45,7 @@ def get_wallet(address):
 
 @anvil.server.callable
 @anvil.server.background_task
-def save_treasury_value():
+def save_treasury_value(day = None):
   POLY_CONTRACT_ADDRESS,POLY_ABI = contract_details.get_contract_details('POLY')
   HDRN_CONTRACT_ADDRESS,HDRN_ABI = contract_details.get_contract_details('HDRN')
   ICSA_CONTRACT_ADDRESS,ICSA_ABI = contract_details.get_contract_details('ICSA')
@@ -54,7 +54,7 @@ def save_treasury_value():
   hdrn_contract = w3.eth.contract(address=HDRN_CONTRACT_ADDRESS, abi=HDRN_ABI)
   icsa_contract = w3.eth.contract(address=ICSA_CONTRACT_ADDRESS, abi=ICSA_ABI)
   today = icsa_contract.functions.currentDay().call()
-  last_full_day = today - 1
+  last_full_day = today - 1 if day is None else day
   data = {}
   stakeStart, capitalAdded, stakePoints, isActive , payoutPreCapitalAddIcsa, payoutPreCapitalAddHdrn, stakeAmount, minStakeLength = icsa_contract.functions.hdrnStakes(POLY_CONTRACT_ADDRESS).call()
   
@@ -62,6 +62,7 @@ def save_treasury_value():
   data['Staked HDRN'] = stakeAmount / (10**9)
   data['Total HDRN'] = data['Liquid HDRN'] + data['Staked HDRN']
   data['Stake Points'] = stakePoints
+  data['ICSA Yield'] = (icsa_contract.functions.hdrnPoolPayout(last_full_day).call()*(stakePoints/icsa_contract.functions.hdrnPoolPoints(last_full_day).call()))/(10**9)
   psraw=poly_contract.functions.totalSupply().call()
   data['POLY Supply']  = psraw / (10**9)
   data['HDRN per POLY'] = data['Total HDRN'] / data['POLY Supply']

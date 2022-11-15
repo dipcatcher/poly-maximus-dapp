@@ -9,6 +9,7 @@ import anvil.js
 from .. import contract_details
 from ..suggestion_box import suggestion_box
 from ..mint_water import mint_water
+from ..poly_wallet import poly_wallet
 anvil.js.report_all_exceptions(False, reraise=False)
 try:
   from anvil.js.window import ethers, ethereum
@@ -17,7 +18,8 @@ except:
   
   is_ethereum=False
 
-
+from ..dashboard import dashboard
+    
 
 class main(mainTemplate):
   def __init__(self, **properties):
@@ -41,7 +43,7 @@ class main(mainTemplate):
     
     if "poly" in l.text.lower():
       self.content_panel.clear()
-      mp = mint_poly(main = self)
+      mp = dashboard()#poly_wallet()#mint_poly(main = self)
       self.content_panel.add_component(mp)
     if "water" in l.text.lower():
       self.content_panel.clear()
@@ -52,7 +54,7 @@ class main(mainTemplate):
       sb = suggestion_box()
       self.content_panel.clear()
       self.content_panel.add_component(sb)
-      
+    
   def get_contract(self, ticker, is_read):
     address, abi = contract_details.get_contract_details(ticker)
     return ethers.Contract(address, abi, self.provider if is_read else self.signer)
@@ -99,3 +101,5 @@ class main(mainTemplate):
 
   def getCurrentDay(self):
     return self.poly_contract_read.getCurrentDay().toNumber()
+
+  

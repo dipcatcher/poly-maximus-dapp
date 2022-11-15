@@ -69,5 +69,12 @@ def save_treasury_value():
   daily_data = app_tables.daily_data.add_row(**data)
   app_tables.latest_day.get(name='latest').update(daily_data=daily_data)
   return data
+@anvil.server.callable
+def balanceOf(token, user_address):
+  user_address = Web3.toChecksumAddress(user_address)
+  w3 = getw3()
+  address, abi = contract_details.get_contract_details(token)
+  contract = w3.eth.contract(address = address,abi=abi)
+  return contract.functions.balanceOf(user_address).call() / (10**9)
   
   

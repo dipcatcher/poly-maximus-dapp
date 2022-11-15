@@ -37,7 +37,7 @@ components:
       components:
       - type: Label
         properties: {role: null, align: left, tooltip: '', border: '', foreground: white,
-          visible: true, text: Pledge, font_size: 16, font: '', spacing_above: small,
+          visible: false, text: Pledge, font_size: 16, font: '', spacing_above: small,
           icon_align: left, spacing_below: small, italic: false, background: '', bold: false,
           underline: false, icon: ''}
         name: label_days_remaining_copy
@@ -45,7 +45,9 @@ components:
           col_widths: {}
           grid_position: VTTWYS,EXQRTD
     - type: ColumnPanel
-      properties: {col_widths: '{}'}
+      properties: {role: null, tooltip: '', border: '', foreground: '', visible: false,
+        wrap_on: mobile, col_spacing: medium, spacing_above: small, col_widths: '{}',
+        spacing_below: small, background: ''}
       name: column_panel_text_entry
       layout_properties: {grid_position: 'NHLHYW,MOJSDL'}
       components: []
@@ -99,7 +101,7 @@ components:
         layout_properties: {row: VFFUCP, width_xs: 7, col_xs: 5, width: 202.75}
     - type: RichText
       properties: {role: null, align: left, tooltip: '', enable_slots: true, border: '',
-        foreground: '', visible: true, font_size: null, content: '{prompt} {info}',
+        foreground: '', visible: false, font_size: null, content: '{prompt} {info}',
         font: '', spacing_above: small, spacing_below: none, data: null, background: '',
         format: restricted_html}
       name: rich_text_1
@@ -125,7 +127,7 @@ components:
         event_bindings: {click: link_1_click}
     - type: GridPanel
       properties: {spacing_above: none, spacing_below: small, background: '', foreground: '',
-        border: '', visible: true, role: null, tooltip: ''}
+        border: '', visible: false, role: null, tooltip: ''}
       name: grid_panel_2
       layout_properties: {grid_position: 'IVUNWF,XAYXZZ'}
       components:
@@ -185,7 +187,7 @@ components:
         layout_properties: {grid_position: 'WKVTNO,ZHBQQH'}
       - type: Button
         properties: {role: filled-button, align: full, tooltip: '', border: '', enabled: true,
-          foreground: white, visible: true, text: Mint POLY, font_size: null, font: '',
+          foreground: white, visible: false, text: Mint POLY, font_size: null, font: '',
           spacing_above: small, icon_align: left, spacing_below: small, italic: false,
           background: '#00D1FF', bold: false, underline: false, icon: ''}
         name: button_mint_poly

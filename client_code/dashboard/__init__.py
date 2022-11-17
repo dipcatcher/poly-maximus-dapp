@@ -41,11 +41,14 @@ def display_format(data, address = "Poly"):
 class dashboard(dashboardTemplate):
   def __init__(self, **properties):
     # Set Form properties and Data Bindings.
+    s
     self.init_components(**properties)
+    
     
   def search(self, address):
     try:
       self.display_user_values(address)
+      
       return (True, None)
     except Exception as e:
       return (False, str(e))

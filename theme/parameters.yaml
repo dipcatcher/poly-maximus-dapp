@@ -52,6 +52,7 @@ roles:
 - {name: link-b, components: null}
 - {name: underline}
 - {name: link-no-pad}
+- {name: no-pad}
 color_scheme:
   preset_groups:
   - name: Colour Scheme

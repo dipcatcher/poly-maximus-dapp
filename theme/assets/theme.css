@@ -1,6 +1,10 @@
 /**
  This CSS implements the Material Design 3 look and feel for Anvil apps.
  **/
+.anvil-role-no-pad {
+  padding:0;
+  margin:0;
+}
 .anvil-role-link-no-pad {
   padding-bottom: 0px;
 }

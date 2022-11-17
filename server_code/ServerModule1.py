@@ -80,4 +80,4 @@ def balanceOf(token, user_address):
   contract = w3.eth.contract(address = address,abi=abi)
   return contract.functions.balanceOf(user_address).call() / (10**9)
   
-  
+

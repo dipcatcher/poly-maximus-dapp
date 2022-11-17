@@ -12,7 +12,7 @@ class dash(dashTemplate):
     # Set Form properties and Data Bindings.
     
     self.init_components(**properties)
-    self.form_show()
+    
   
     
 
@@ -28,9 +28,10 @@ class dash(dashTemplate):
     icsa_prices = anvil.server.call('get_pool_prices', icsa_pool)#anvil.http.request(url.format(icsa_pool), json=True)
     hdrn_prices = anvil.server.call('get_pool_prices', hdrn_pool)#anvil.http.request(url.format(hdrn_pool), json=True)
     print(hdrn_prices)
+    print(icsa_prices)
     dd = {}
-    hdrn_value = hdrn_prices['USDC per HDRN'] * self.data['Total HDRN'] 
-    icsa_value = icsa_pool['USDC per ICSA'] * self.data['ICSA Yield']
+    hdrn_value = float(hdrn_prices['USDC per HDRN']) * self.data['Total HDRN'] 
+    icsa_value = float(icsa_prices['USDC per ICSA']) * self.data['ICSA Yield']
     
     dd['Treasury Value'] = {"c":self.custom_1 , 'content':"${:,}".format(int(hdrn_value + icsa_value))}
     dd['Total HDRN'] = {"c":self.custom_2 , 'content':"{:,}".format(int(self.data['Total HDRN']))}
@@ -41,8 +42,8 @@ class dash(dashTemplate):
 
     for k,v in dd.items():
       print(k,v)
-      v['c'].title = k
-      v['c'].content = v['content']
+      v['c'].title.text = k
+      v['c'].content.text = v['content']
       
     
 

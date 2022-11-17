@@ -41,7 +41,7 @@ def display_format(data, address = "Poly"):
 class dashboard(dashboardTemplate):
   def __init__(self, **properties):
     # Set Form properties and Data Bindings.
-    s
+    
     self.init_components(**properties)
     
     
@@ -55,6 +55,7 @@ class dashboard(dashboardTemplate):
   def display_user_values(self, address):
     self.user_balance = anvil.server.call('balanceOf', "POLY", address)
     self.user_data = {}
+    
     for k,v in self.daily_data.items():
       fv = v
       if k not in ['HDRN per POLY']:
@@ -63,6 +64,7 @@ class dashboard(dashboardTemplate):
     self.user_row = display_format(self.user_data, address)
     display = [display_format(self.daily_data), self.user_row]
     self.repeating_panel_1.items =display
+    
     # Any code you write here will run when the form opens.
 
   def form_show(self, **event_args):

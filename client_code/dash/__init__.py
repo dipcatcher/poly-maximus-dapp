@@ -5,6 +5,7 @@ import anvil.tables as tables
 import anvil.tables.query as q
 from anvil.tables import app_tables
 import anvil.http
+
 from ..info_display import info_display
 class dash(dashTemplate):
   def __init__(self, **properties):
@@ -24,8 +25,8 @@ class dash(dashTemplate):
     icsa_pool = "0x3aaf77ba7da262e34dffb9b10fc6777bfda79ab7"
     hdrn_pool = "0xe859041c9c6d70177f83de991b9d757e13cea26e"
     print('urls')
-    icsa_prices = anvil.http.request(url.format(icsa_pool), json=True)
-    hdrn_prices = anvil.http.request(url.format(hdrn_pool), json=True)
+    icsa_prices = anvil.server.call('get_pool_prices', icsa_pool)#anvil.http.request(url.format(icsa_pool), json=True)
+    hdrn_prices = anvil.server.call('get_pool_prices', hdrn_pool)#anvil.http.request(url.format(hdrn_pool), json=True)
     print(hdrn_prices)
     dd = {}
     hdrn_value = hdrn_prices['USDC per HDRN'] * self.data['Total HDRN'] 

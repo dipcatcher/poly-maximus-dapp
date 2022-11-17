@@ -11,5 +11,6 @@ class info_display(info_displayTemplate):
     self.init_components(**properties)
     self.title = properties['title']
     self.content = properties['content']
+    
 
     # Any code you write here will run when the form opens.

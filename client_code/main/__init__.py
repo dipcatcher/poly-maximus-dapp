@@ -34,6 +34,7 @@ class main(mainTemplate):
       start = self.link_mint
     
     self.menu_click(sender=start)
+  
     
 
     # Any code you write here will run when the form opens.

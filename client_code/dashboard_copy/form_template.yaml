@@ -23,7 +23,7 @@ components:
       foreground: ''
       rows_per_page: 20
       visible: true
-      wrap_on: never
+      wrap_on: mobile
       show_page_controls: false
       spacing_above: small
       spacing_below: small
@@ -38,15 +38,32 @@ components:
       components:
       - type: ColumnPanel
         properties: {}
-        name: column_panel_3
+        name: column_panel_a
         layout_properties: {column: HPDYEZ}
       - type: ColumnPanel
         properties: {}
-        name: column_panel_3_copy
+        name: column_panel_b
         layout_properties: {column: LFUWMI}
       - type: ColumnPanel
         properties: {}
-        name: column_panel_3_copy_2
+        name: column_panel_c
+        layout_properties: {column: CRXTCB}
+    - type: DataRowPanel
+      properties: {}
+      name: data_row_panel_1_copy
+      layout_properties: {}
+      components:
+      - type: ColumnPanel
+        properties: {}
+        name: column_panel_d
+        layout_properties: {column: HPDYEZ}
+      - type: ColumnPanel
+        properties: {}
+        name: column_panel_e
+        layout_properties: {column: LFUWMI}
+      - type: ColumnPanel
+        properties: {}
+        name: column_panel_f
         layout_properties: {column: CRXTCB}
     - type: RepeatingPanel
       properties: {spacing_above: none, spacing_below: none, item_template: dashboard.RowTemplate4}

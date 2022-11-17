@@ -4,6 +4,7 @@ import anvil.server
 import anvil.tables as tables
 import anvil.tables.query as q
 from anvil.tables import app_tables
+from ..info_display import info_display
 
 
 from ..address_entry import address_entry
@@ -43,7 +44,7 @@ def display_format(data, address = "Poly"):
 class dashboard_copy(dashboard_copyTemplate):
   def __init__(self, **properties):
     # Set Form properties and Data Bindings.
-    self
+    
     self.init_components(**properties)
 
 
@@ -71,6 +72,10 @@ class dashboard_copy(dashboard_copyTemplate):
 
   def form_show(self, **event_args):
     self.daily_data = app_tables.latest_day.get(name='latest')['daily_data']
+    display_data = {}
+    
+    
+    self.column_panel_a.add_component(input_display(title=t, display = d))
     self.ae = address_entry(dashboard_form = self)
     self.column_panel_2.add_component(self.ae)
     display = [display_format(self.daily_data)]

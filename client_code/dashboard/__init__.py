@@ -44,6 +44,7 @@ class dashboard(dashboardTemplate):
     # Set Form properties and Data Bindings.
     
     self.init_components(**properties)
+  
     
     
   def search(self, address):

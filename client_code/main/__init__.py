@@ -18,12 +18,12 @@ except:
   
   is_ethereum=False
 
-from ..dashboard import dashboard
+#from ..dashboard import dashboard
+from ..dash import dash
     
 
 class main(mainTemplate):
   def __init__(self, **properties):
-    
     # Set Form properties and Data Bindings.
     self.init_components(**properties)
     self.is_ethereum = is_ethereum
@@ -45,7 +45,7 @@ class main(mainTemplate):
     
     if "poly" in l.text.lower():
       self.content_panel.clear()
-      mp = dashboard()#poly_wallet()#mint_poly(main = self)
+      mp = dash()#poly_wallet()#mint_poly(main = self)
       self.content_panel.add_component(mp)
     if "water" in l.text.lower():
       self.content_panel.clear()

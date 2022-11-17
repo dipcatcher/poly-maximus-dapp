@@ -9,8 +9,7 @@ class info_display(info_displayTemplate):
   def __init__(self, **properties):
     # Set Form properties and Data Bindings.
     self.init_components(**properties)
-    self.title = properties['title']
-    self.content = properties['content']
+    
     
     
     

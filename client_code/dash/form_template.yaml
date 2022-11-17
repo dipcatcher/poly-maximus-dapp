@@ -1,3 +1,71 @@
-container: {type: ColumnPanel}
-components: []
+container:
+  type: ColumnPanel
+  properties: {col_widths: '{}'}
+  event_bindings: {show: form_show}
+components:
+- type: ColumnPanel
+  properties: {role: outlined-card}
+  name: outlined_card_1
+  layout_properties: {grid_position: 'MIJMMO,XVEGMV'}
+  components:
+  - type: DataGrid
+    properties:
+      role: null
+      columns:
+      - {id: HPDYEZ, title: Column 1, data_key: column_1, $$hashKey: 'object:691'}
+      - {id: LFUWMI, title: Column 2, data_key: column_2, $$hashKey: 'object:692'}
+      - {id: CRXTCB, title: Column 3, data_key: column_3, $$hashKey: 'object:693'}
+      auto_header: false
+      tooltip: ''
+      border: ''
+      foreground: ''
+      rows_per_page: 20
+      visible: true
+      wrap_on: never
+      show_page_controls: false
+      spacing_above: small
+      spacing_below: small
+      background: ''
+    name: data_grid_2
+    layout_properties:
+      col_widths: {}
+      grid_position: WJFVEV,JTUQJS
+    components:
+    - type: DataRowPanel
+      properties: {role: null, align: left, tooltip: '', border: '', foreground: '',
+        auto_display_data: true, visible: true, item: null, font_size: null, font: '',
+        spacing_above: none, spacing_below: none, italic: false, background: '', bold: false,
+        underline: false}
+      name: data_row_panel_1
+      layout_properties: {}
+      components:
+      - type: form:info_display
+        properties: {}
+        name: custom_1
+        layout_properties: {column: HPDYEZ}
+      - type: form:info_display
+        properties: {}
+        name: custom_2
+        layout_properties: {column: LFUWMI}
+      - type: form:info_display
+        properties: {}
+        name: custom_3
+        layout_properties: {column: CRXTCB}
+    - type: DataRowPanel
+      properties: {}
+      name: data_row_panel_2
+      layout_properties: {}
+      components:
+      - type: form:info_display
+        properties: {}
+        name: custom_4
+        layout_properties: {column: HPDYEZ}
+      - type: form:info_display
+        properties: {}
+        name: custom_5
+        layout_properties: {column: LFUWMI}
+      - type: form:info_display
+        properties: {}
+        name: custom_6
+        layout_properties: {column: CRXTCB}
 is_package: true

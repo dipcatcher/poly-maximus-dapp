@@ -54,7 +54,7 @@ def save_treasury_value(day = None):
   hdrn_contract = w3.eth.contract(address=HDRN_CONTRACT_ADDRESS, abi=HDRN_ABI)
   icsa_contract = w3.eth.contract(address=ICSA_CONTRACT_ADDRESS, abi=ICSA_ABI)
   today = icsa_contract.functions.currentDay().call()
-  last_full_day = today - 1 if day is None else day
+  last_full_day = today if day is None else day
   data = {}
   stakeStart, capitalAdded, stakePoints, isActive , payoutPreCapitalAddIcsa, payoutPreCapitalAddHdrn, stakeAmount, minStakeLength = icsa_contract.functions.hdrnStakes(POLY_CONTRACT_ADDRESS).call()
   

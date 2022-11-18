@@ -9,7 +9,6 @@ import anvil.js
 from .. import contract_details
 from ..suggestion_box import suggestion_box
 from ..mint_water import mint_water
-from ..poly_wallet import poly_wallet
 anvil.js.report_all_exceptions(False, reraise=False)
 try:
   from anvil.js.window import ethers, ethereum

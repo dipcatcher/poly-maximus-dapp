@@ -21,17 +21,13 @@ class dash(dashTemplate):
   def form_show(self, **event_args):
     """This method is called when the column panel is shown on the screen"""
     self.data = app_tables.latest_day.get(name='latest')['daily_data']
-    url = "http://polyapi.anvil.app/_/api/pool_prices/{}"
-    icsa_pool = "0x3aaf77ba7da262e34dffb9b10fc6777bfda79ab7"
-    hdrn_pool = "0xe859041c9c6d70177f83de991b9d757e13cea26e"
-    print('urls')
-    icsa_prices = anvil.server.call('get_pool_prices', icsa_pool)#anvil.http.request(url.format(icsa_pool), json=True)
-    hdrn_prices = anvil.server.call('get_pool_prices', hdrn_pool)#anvil.http.request(url.format(hdrn_pool), json=True)
-    print(hdrn_prices)
-    print(icsa_prices)
+    self.prices = app_tables.recent_prices.get(name='prices')['price_data']
+    print(self.prices)
     dd = {}
-    hdrn_value = float(hdrn_prices['USDC per HDRN']) * self.data['Total HDRN'] 
-    icsa_value = float(icsa_prices['USDC per ICSA']) * self.data['ICSA Yield']
+    hdrn_value = float(self.prices['USDC per HDRN']) * self.data['Total HDRN'] 
+    icsa_value = float(self.prices['USDC per ICSA']) * self.data['ICSA Yield']
+    poly_price = float(self.prices['USDC per HDRN'])* float(self.prices['HDRN per POLY'])
+    backing_value = (hdrn_value + icsa_value)/self.data['POLY Supply']
     
     dd['Treasury Value'] = {"c":self.custom_1 , 'content':"${:,}".format(int(hdrn_value + icsa_value))}
     dd['Total HDRN'] = {"c":self.custom_2 , 'content':"{:,}".format(int(self.data['Total HDRN']))}
@@ -39,7 +35,17 @@ class dash(dashTemplate):
     dd['POLY Supply'] = {"c":self.custom_4 , 'content':"{:,}".format(int(self.data['POLY Supply']))}
     dd['HDRN Value'] = {"c":self.custom_5 , 'content':"${:,}".format(int(hdrn_value))}
     dd['ICSA Value'] = {"c":self.custom_6 , 'content':"${:,}".format(int(icsa_value))}
-
+    dd['POLY Market Price'] = {"c":self.custom_7, 'content':"${:.8f}".format(poly_price)}
+    dd['Backing Value'] = {"c":self.custom_8, 'content':"${:.8f}".format(backing_value)}
+    if poly_price > backing_value:
+      # 150 / 100
+      p = (poly_price / backing_value) - 1
+      d = "Premium"
+    else:
+      d = "Discount"
+      p = (backing_value-poly_price)/backing_value
+    dd['Valuation'] = {"c":self.custom_9, 'content':"{:.2f}% {}".format(100*p, d)
+    }
     for k,v in dd.items():
       print(k,v)
       v['c'].title.text = k

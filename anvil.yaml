@@ -5,6 +5,12 @@ scheduled_tasks:
     every: day
     at: {minute: 0, hour: 0}
   job_id: HKBVNNHK
+- task_name: get_prices
+  time_spec:
+    n: 5
+    every: minute
+    at: {}
+  job_id: WFCBVAGY
 dependencies:
 - app_id: IW5PBR7OP4BKIDIV
   version: {dev: false}

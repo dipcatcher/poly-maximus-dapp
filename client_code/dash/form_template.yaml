@@ -4,7 +4,7 @@ container:
   event_bindings: {show: form_show}
 components:
 - type: ColumnPanel
-  properties: {role: outlined-card}
+  properties: {role: outlined-card, col_widths: '{}'}
   name: outlined_card_1
   layout_properties: {grid_position: 'MIJMMO,XVEGMV'}
   components:
@@ -68,4 +68,25 @@ components:
         properties: {}
         name: custom_6
         layout_properties: {column: CRXTCB}
+    - type: DataRowPanel
+      properties: {}
+      name: data_row_panel_3
+      layout_properties: {}
+      components:
+      - type: form:info_display
+        properties: {}
+        name: custom_7
+        layout_properties: {column: HPDYEZ}
+      - type: form:info_display
+        properties: {}
+        name: custom_8
+        layout_properties: {column: LFUWMI}
+      - type: form:info_display
+        properties: {}
+        name: custom_9
+        layout_properties: {column: CRXTCB}
+  - type: form:dashboard
+    properties: {}
+    name: custom_10
+    layout_properties: {grid_position: 'WFCMAL,UREBEE'}
 is_package: true

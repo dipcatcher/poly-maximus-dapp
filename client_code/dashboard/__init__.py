@@ -50,10 +50,13 @@ class dashboard(dashboardTemplate):
   def search(self, address):
     try:
       self.display_user_values(address)
+      self.data_grid_1.visible=True
       
       return (True, None)
     except Exception as e:
+      self.data_grid_1.visible=False
       return (False, str(e))
+      
   def display_user_values(self, address):
     self.user_balance = anvil.server.call('balanceOf', "POLY", address)
     self.user_data = {}
@@ -64,7 +67,7 @@ class dashboard(dashboardTemplate):
         fv = float(v * self.user_balance / self.daily_data['POLY Supply'])
       self.user_data[k] = fv
     self.user_row = display_format(self.user_data, address)
-    display = [display_format(self.daily_data), self.user_row]
+    display = [self.user_row]
     self.repeating_panel_1.items =display
     
     # Any code you write here will run when the form opens.
@@ -73,9 +76,6 @@ class dashboard(dashboardTemplate):
     self.daily_data = app_tables.latest_day.get(name='latest')['daily_data']
     self.ae = address_entry(dashboard_form = self)
     self.column_panel_2.add_component(self.ae)
-    display = [display_format(self.daily_data)]
-    self.repeating_panel_1.items =display
-    
     self.address = get_open_form().address
     self.ae.text_box_1.text = self.address
     if self.address is None:

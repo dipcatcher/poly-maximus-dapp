@@ -95,4 +95,64 @@ components:
     properties: {}
     name: custom_11
     layout_properties: {grid_position: 'GMPGQT,TJIRPF'}
+- type: ColumnPanel
+  properties: {role: tonal-card, tooltip: '', border: '', foreground: '', visible: true,
+    wrap_on: mobile, col_spacing: medium, spacing_above: small, col_widths: '{}',
+    spacing_below: small, background: '#1B1D26'}
+  name: outlined_card_3
+  layout_properties: {grid_position: 'XGTQMZ,QMWYRJ'}
+  components:
+  - type: DataGrid
+    properties:
+      role: center
+      columns:
+      - {id: MHAGAB, title: Date, data_key: Date, $$hashKey: 'object:1508'}
+      - {id: SLUKRI, title: ICSA Yield, data_key: ICSA Yield, $$hashKey: 'object:1509'}
+      - {id: BSXZQI, title: Total ICSA, data_key: Total ICSA, $$hashKey: 'object:1510'}
+      auto_header: false
+      tooltip: ''
+      border: ''
+      foreground: ''
+      rows_per_page: 20
+      visible: true
+      wrap_on: never
+      show_page_controls: false
+      spacing_above: small
+      spacing_below: small
+      background: ''
+    name: data_grid_1
+    layout_properties: {grid_position: 'EOAGKK,EXVQZN'}
+    components:
+    - type: DataRowPanel
+      properties: {}
+      name: data_row_panel_1
+      layout_properties: {}
+      components:
+      - type: Label
+        properties: {role: null, align: center, tooltip: '', border: '', foreground: '',
+          visible: true, text: Date, font_size: null, font: '', spacing_above: small,
+          icon_align: left, spacing_below: small, italic: false, background: '', bold: false,
+          underline: false, icon: ''}
+        name: label_1
+        layout_properties: {column: MHAGAB}
+      - type: Label
+        properties: {role: null, align: center, tooltip: '', border: '', foreground: '',
+          visible: true, text: ICSA Yield, font_size: null, font: '', spacing_above: small,
+          icon_align: left, spacing_below: small, italic: false, background: '', bold: false,
+          underline: false, icon: ''}
+        name: label_2
+        layout_properties: {column: SLUKRI}
+      - type: Label
+        properties: {role: null, align: center, tooltip: '', border: '', foreground: '',
+          visible: true, text: Total ICSA, font_size: null, font: '', spacing_above: small,
+          icon_align: left, spacing_below: small, italic: false, background: '', bold: false,
+          underline: false, icon: ''}
+        name: label_4
+        layout_properties: {column: BSXZQI}
+    - type: RepeatingPanel
+      properties: {role: null, tooltip: '', border: '', foreground: '', items: null,
+        visible: true, spacing_above: none, spacing_below: none, item_template: dash_copy.RowTemplate5,
+        background: ''}
+      name: repeating_panel_1
+      layout_properties: {}
 is_package: true

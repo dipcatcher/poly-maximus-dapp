@@ -18,17 +18,20 @@ class dash_copy(dash_copyTemplate):
 
 
     # Any code you write here will run when the form opens.
-  def get_daily_data(self):
+  def show_daily_data(self):
     all_days= app_tables.daily_data.search()
     n = 0
+    display = []
     for day in all_days:
-      date = datetime.datetime.date(2022, 11,14) + datetime.timedelta(days=day['Day']-261)
+      date = datetime.date(2022, 11,14) + datetime.timedelta(days=day['Day']-261)
       
       d = {'Date': date.strftime('%m/%d')}
-      d['ICSA Yield'] = day['ICSA Yield'] if n==0 else day['ICSA Yield'] - latest
+      d['ICSA Yield'] = "{:,.2f}".format(day['ICSA Yield'] if n==0 else day['ICSA Yield'] - latest)
       latest = day['ICSA Yield']
       n+=1
-      d['Total ICSA'] = day['ICSA Yield']
+      d['Total ICSA'] = "{:,.2f}".format(day['ICSA Yield'])
+      display.append(d)
+    self.repeating_panel_1.items=display
     
   def form_show(self, **event_args):
     """This method is called when the column panel is shown on the screen"""
@@ -62,4 +65,5 @@ class dash_copy(dash_copyTemplate):
       print(k,v)
       v['c'].title.text = k
       v['c'].content.text = v['content']
-      
+
+    self.show_daily_data()

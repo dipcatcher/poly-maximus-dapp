@@ -53,6 +53,7 @@ roles:
 - {name: underline}
 - {name: link-no-pad}
 - {name: no-pad}
+- {name: center}
 color_scheme:
   preset_groups:
   - name: Colour Scheme

@@ -27,13 +27,13 @@ components:
         width: null}
     - type: form:info_display
       properties: {}
-      name: custom_2
-      layout_properties: {column: LFUWMI, grid_position: 'MAEWLM,SAHATA', expand: true,
+      name: custom_5
+      layout_properties: {column: LFUWMI, grid_position: 'DYEKCP,ECGCLO', expand: true,
         width: null}
     - type: form:info_display
       properties: {}
-      name: custom_3
-      layout_properties: {column: CRXTCB, grid_position: 'MAEWLM,FKOFYJ', expand: true,
+      name: custom_6
+      layout_properties: {column: CRXTCB, grid_position: 'DYEKCP,DRMZXA', expand: true,
         width: null}
   - type: FlowPanel
     properties: {}
@@ -47,13 +47,13 @@ components:
         width: null}
     - type: form:info_display
       properties: {}
-      name: custom_5
-      layout_properties: {column: LFUWMI, grid_position: 'DYEKCP,ECGCLO', expand: true,
+      name: custom_2
+      layout_properties: {column: LFUWMI, grid_position: 'MAEWLM,SAHATA', expand: true,
         width: null}
     - type: form:info_display
       properties: {}
-      name: custom_6
-      layout_properties: {column: CRXTCB, grid_position: 'DYEKCP,DRMZXA', expand: true,
+      name: custom_3
+      layout_properties: {column: CRXTCB, grid_position: 'MAEWLM,FKOFYJ', expand: true,
         width: null}
   - type: Label
     properties: {role: null, align: left, tooltip: '', border: '', foreground: '',

@@ -18,7 +18,6 @@ components:
     properties:
       role: null
       columns:
-      - {id: JZEADJ, title: '', data_key: Entity, $$hashKey: 'object:15790'}
       - {id: VJNCUF, title: Stake Points, data_key: Stake Points, $$hashKey: 'object:328'}
       - {id: QFXYZD, title: Staked HDRN, data_key: Staked HDRN, $$hashKey: 'object:330'}
       - {id: TSKLHY, title: Total HDRN, data_key: Total HDRN, $$hashKey: 'object:331'}

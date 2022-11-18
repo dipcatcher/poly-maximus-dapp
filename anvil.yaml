@@ -1,12 +1,27 @@
+scheduled_tasks:
+- task_name: save_treasury_value
+  time_spec:
+    n: 1
+    every: day
+    at: {minute: 0, hour: 0}
+  job_id: HKBVNNHK
+- task_name: get_prices
+  time_spec:
+    n: 5
+    every: minute
+    at: {}
+  job_id: WFCBVAGY
 dependencies:
 - app_id: IW5PBR7OP4BKIDIV
   version: {dev: false}
 - app_id: 32ZKV6S54U3IFMLP
   version: {dev: false}
+- app_id: X6A6ZNZUU6QC76S4
+  version: {dev: false}
 services:
 - source: /runtime/services/tables.yml
   client_config: {enable_v2: true}
-  server_config: {}
+  server_config: {auto_create_missing_columns: true}
 startup: {type: form, module: main}
 package_name: Poly_Maximus_Draft
 allow_embedding: false
@@ -16,7 +31,7 @@ runtime_options:
   client_version: '3'
   server_version: python3-full
   server_spec: {base: python310-standard}
-metadata: {title: Poly Maximus, logo_img: 'asset:poly max url image.JPEG', description: Maximus HDRN pool for bidding on HSI auctions.}
+metadata: {title: Poly Maximus, logo_img: 'asset:poly max url image.JPEG', description: Maximus HDRN stake pool}
 startup_form: null
 native_deps: {head_html: '<link rel="preconnect" href="https://fonts.googleapis.com">
 

@@ -1,0 +1,158 @@
+container:
+  type: ColumnPanel
+  properties: {col_widths: '{}'}
+  event_bindings: {show: form_show}
+components:
+- type: form:dashboard
+  properties: {}
+  name: custom_10
+  layout_properties: {grid_position: 'BXVCZU,UKNFOW'}
+- type: ColumnPanel
+  properties: {role: tonal-card, tooltip: '', border: '', foreground: '', visible: true,
+    wrap_on: mobile, col_spacing: medium, spacing_above: small, col_widths: '{}',
+    spacing_below: small, background: '#1B1D26'}
+  name: outlined_card_1
+  layout_properties: {grid_position: 'MIJMMO,XVEGMV'}
+  components:
+  - type: FlowPanel
+    properties: {role: null, spacing: huge, align: center, tooltip: '', border: '',
+      foreground: '', visible: true, spacing_above: small, spacing_below: small, background: ''}
+    name: flow_panel_1
+    layout_properties: {grid_position: 'OAITLQ,HVZXHZ'}
+    components:
+    - type: form:info_display
+      properties: {}
+      name: custom_1
+      layout_properties: {column: HPDYEZ, grid_position: 'MAEWLM,STAYJL', expand: true,
+        width: null}
+    - type: form:info_display
+      properties: {}
+      name: custom_2
+      layout_properties: {column: LFUWMI, grid_position: 'MAEWLM,SAHATA', expand: true,
+        width: null}
+    - type: form:info_display
+      properties: {}
+      name: custom_3
+      layout_properties: {column: CRXTCB, grid_position: 'MAEWLM,FKOFYJ', expand: true,
+        width: null}
+  - type: FlowPanel
+    properties: {}
+    name: flow_panel_2
+    layout_properties: {grid_position: 'RQXNRY,BVWLUE'}
+    components:
+    - type: form:info_display
+      properties: {}
+      name: custom_4
+      layout_properties: {column: HPDYEZ, grid_position: 'OAITLQ,YISVZY', expand: true,
+        width: null}
+    - type: form:info_display
+      properties: {}
+      name: custom_5
+      layout_properties: {column: LFUWMI, grid_position: 'DYEKCP,ECGCLO', expand: true,
+        width: null}
+    - type: form:info_display
+      properties: {}
+      name: custom_6
+      layout_properties: {column: CRXTCB, grid_position: 'DYEKCP,DRMZXA', expand: true,
+        width: null}
+  - type: Label
+    properties: {role: null, align: left, tooltip: '', border: '', foreground: '',
+      visible: true, text: The first 139B of the HDRN stake started on November 12. The remaining 1.762T HDRN will be staked on December 14.,
+      font_size: null, font: '', spacing_above: small, icon_align: left, spacing_below: small,
+      italic: true, background: '', bold: false, underline: false, icon: ''}
+    name: label_3
+    layout_properties:
+      col_widths: {}
+      grid_position: SCWIVC,KRMRYP
+- type: ColumnPanel
+  properties: {role: tonal-card, tooltip: '', border: '', foreground: '', visible: true,
+    wrap_on: mobile, col_spacing: medium, spacing_above: small, col_widths: '{}',
+    spacing_below: small, background: '#1B1D26'}
+  name: outlined_card_2
+  layout_properties: {grid_position: 'ZIHLLD,NQZSKQ'}
+  components:
+  - type: FlowPanel
+    properties: {}
+    name: flow_panel_3
+    layout_properties: {grid_position: 'XISPLF,UQJJJZ'}
+    components:
+    - type: form:info_display
+      properties: {}
+      name: custom_7
+      layout_properties: {column: HPDYEZ, grid_position: 'XISPLF,HKZQGS', expand: true,
+        width: null}
+    - type: form:info_display
+      properties: {}
+      name: custom_8
+      layout_properties: {column: LFUWMI, grid_position: 'NVMOKM,NVZNNW', expand: true,
+        width: null}
+    - type: form:info_display
+      properties: {}
+      name: custom_9
+      layout_properties: {column: CRXTCB, grid_position: 'NVMOKM,GMURMS', expand: true,
+        width: null}
+  - type: form:chart
+    properties: {}
+    name: custom_11
+    layout_properties: {grid_position: 'GMPGQT,TJIRPF'}
+- type: ColumnPanel
+  properties: {role: tonal-card, tooltip: '', border: '', foreground: '', visible: true,
+    wrap_on: mobile, col_spacing: medium, spacing_above: small, col_widths: '{}',
+    spacing_below: small, background: '#1B1D26'}
+  name: outlined_card_3
+  layout_properties: {grid_position: 'XGTQMZ,QMWYRJ'}
+  components:
+  - type: DataGrid
+    properties:
+      role: center
+      columns:
+      - {id: MHAGAB, title: Date, data_key: Date, $$hashKey: 'object:1508'}
+      - {id: SLUKRI, title: ICSA Yield, data_key: ICSA Yield, $$hashKey: 'object:1509'}
+      - {id: BSXZQI, title: Total ICSA, data_key: Total ICSA, $$hashKey: 'object:1510'}
+      auto_header: false
+      tooltip: ''
+      border: ''
+      foreground: ''
+      rows_per_page: 20
+      visible: true
+      wrap_on: never
+      show_page_controls: false
+      spacing_above: small
+      spacing_below: small
+      background: ''
+    name: data_grid_1
+    layout_properties: {grid_position: 'EOAGKK,EXVQZN'}
+    components:
+    - type: DataRowPanel
+      properties: {}
+      name: data_row_panel_1
+      layout_properties: {}
+      components:
+      - type: Label
+        properties: {role: null, align: center, tooltip: '', border: '', foreground: '',
+          visible: true, text: Date, font_size: null, font: '', spacing_above: small,
+          icon_align: left, spacing_below: small, italic: false, background: '', bold: false,
+          underline: false, icon: ''}
+        name: label_1
+        layout_properties: {column: MHAGAB}
+      - type: Label
+        properties: {role: null, align: center, tooltip: '', border: '', foreground: '',
+          visible: true, text: ICSA Yield, font_size: null, font: '', spacing_above: small,
+          icon_align: left, spacing_below: small, italic: false, background: '', bold: false,
+          underline: false, icon: ''}
+        name: label_2
+        layout_properties: {column: SLUKRI}
+      - type: Label
+        properties: {role: null, align: center, tooltip: '', border: '', foreground: '',
+          visible: true, text: Total ICSA, font_size: null, font: '', spacing_above: small,
+          icon_align: left, spacing_below: small, italic: false, background: '', bold: false,
+          underline: false, icon: ''}
+        name: label_4
+        layout_properties: {column: BSXZQI}
+    - type: RepeatingPanel
+      properties: {role: null, tooltip: '', border: '', foreground: '', items: null,
+        visible: true, spacing_above: none, spacing_below: none, item_template: dash_copy.RowTemplate5,
+        background: ''}
+      name: repeating_panel_1
+      layout_properties: {}
+is_package: true

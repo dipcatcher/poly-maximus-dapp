@@ -5,20 +5,31 @@ import anvil.tables as tables
 import anvil.tables.query as q
 from anvil.tables import app_tables
 import anvil.http
-
+import datetime
 from ..info_display import info_display
 class dash_copy(dash_copyTemplate):
   def __init__(self, **properties):
     # Set Form properties and Data Bindings.
 
     self.init_components(**properties)
-
+    
+    
 
 
 
     # Any code you write here will run when the form opens.
   def get_daily_data(self):
-    app
+    all_days= app_tables.daily_data.search()
+    n = 0
+    for day in all_days:
+      date = datetime.datetime.date(2022, 11,14) + datetime.timedelta(days=day['Day']-261)
+      
+      d = {'Date': date.strftime('%m/%d')}
+      d['ICSA Yield'] = day['ICSA Yield'] if n==0 else day['ICSA Yield'] - latest
+      latest = day['ICSA Yield']
+      n+=1
+      d['Total ICSA'] = day['ICSA Yield']
+    
   def form_show(self, **event_args):
     """This method is called when the column panel is shown on the screen"""
     self.data = app_tables.latest_day.get(name='latest')['daily_data']

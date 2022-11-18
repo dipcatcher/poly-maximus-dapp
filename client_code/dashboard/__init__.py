@@ -69,6 +69,7 @@ class dashboard(dashboardTemplate):
     self.user_row = display_format(self.user_data, address)
     display = [self.user_row]
     self.repeating_panel_1.items =display
+    self.data_grid_1.visible=True
     
     # Any code you write here will run when the form opens.
 

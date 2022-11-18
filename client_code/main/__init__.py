@@ -19,7 +19,7 @@ except:
   is_ethereum=False
 
 #from ..dashboard import dashboard
-from ..dash import dash
+from ..dash_copy import dash_copy
     
 
 class main(mainTemplate):
@@ -45,7 +45,7 @@ class main(mainTemplate):
     
     if "poly" in l.text.lower():
       self.content_panel.clear()
-      mp = dash()#poly_wallet()#mint_poly(main = self)
+      mp = dash_copy()#poly_wallet()#mint_poly(main = self)
       self.content_panel.add_component(mp)
     if "water" in l.text.lower():
       self.content_panel.clear()

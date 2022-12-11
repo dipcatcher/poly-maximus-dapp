@@ -19,7 +19,7 @@ class mint_rate_chart(mint_rate_chartTemplate):
 
     g = go.Scatter(x=x, y=y)
     self.plot_1.config['displayModeBar'] = False
-    self.plot_1.layout.title = "Current Mint Rate 369 WATER : 1 ETH"
+    self.plot_1.layout.title = "Current Mint Rate 123 WATER : 1 ETH"
     self.plot_1.layout.xaxis.title = "Day Since Launch"
     self.plot_1.layout.yaxis.title = "WATER per ETH"
     self.plot_1.layout.xaxis.color = "white"

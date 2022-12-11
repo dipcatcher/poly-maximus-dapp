@@ -113,7 +113,7 @@ components:
       tooltip: ''
       border: ''
       foreground: ''
-      rows_per_page: 20
+      rows_per_page: 0
       visible: true
       wrap_on: never
       show_page_controls: false

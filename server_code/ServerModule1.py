@@ -43,6 +43,8 @@ def get_wallet(address):
   
   #data['ICSA Earned To Date'] = payoutPreCapitalAddIcsa + sum([stakePoints*icsa_contract.functions.hdrnPoolPayout(d).call() for d in range(capitalAdded:today) ])
 
+
+
 @anvil.server.callable
 @anvil.server.background_task
 def save_treasury_value(day = None):

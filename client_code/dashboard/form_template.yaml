@@ -26,10 +26,10 @@ components:
       tooltip: ''
       border: ''
       foreground: ''
-      rows_per_page: 20
+      rows_per_page: 100
       visible: false
       wrap_on: never
-      show_page_controls: false
+      show_page_controls: true
       spacing_above: small
       spacing_below: small
       background: ''

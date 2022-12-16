@@ -55,15 +55,6 @@ components:
       name: custom_3
       layout_properties: {column: CRXTCB, grid_position: 'MAEWLM,FKOFYJ', expand: true,
         width: null}
-  - type: Label
-    properties: {role: null, align: left, tooltip: '', border: '', foreground: '',
-      visible: true, text: The first 139B of the HDRN stake started on November 12. The remaining 1.762T HDRN will be staked on December 14.,
-      font_size: null, font: '', spacing_above: small, icon_align: left, spacing_below: small,
-      italic: true, background: '', bold: false, underline: false, icon: ''}
-    name: label_3
-    layout_properties:
-      col_widths: {}
-      grid_position: SCWIVC,KRMRYP
 - type: ColumnPanel
   properties: {role: tonal-card, tooltip: '', border: '', foreground: '', visible: true,
     wrap_on: mobile, col_spacing: medium, spacing_above: small, col_widths: '{}',

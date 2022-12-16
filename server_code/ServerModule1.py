@@ -43,7 +43,24 @@ def get_wallet(address):
   
   #data['ICSA Earned To Date'] = payoutPreCapitalAddIcsa + sum([stakePoints*icsa_contract.functions.hdrnPoolPayout(d).call() for d in range(capitalAdded:today) ])
 
-
+@anvil.server.callable
+def test():
+  from_block = 16177473
+  POLY_CONTRACT_ADDRESS,POLY_ABI = contract_details.get_contract_details('POLY')
+  HDRN_CONTRACT_ADDRESS,HDRN_ABI = contract_details.get_contract_details('HDRN')
+  ICSA_CONTRACT_ADDRESS,ICSA_ABI = contract_details.get_contract_details('ICSA')
+  w3 = getw3()
+  poly_contract = w3.eth.contract(address=POLY_CONTRACT_ADDRESS, abi=POLY_ABI)
+  hdrn_contract = w3.eth.contract(address=HDRN_CONTRACT_ADDRESS, abi=HDRN_ABI)
+  icsa_contract = w3.eth.contract(address=ICSA_CONTRACT_ADDRESS, abi=ICSA_ABI)
+  today = icsa_contract.functions.currentDay().call()
+  stakeStart, capitalAdded, stakePoints, isActive , payoutPreCapitalAddIcsa, payoutPreCapitalAddHdrn, stakeAmount, minStakeLength = icsa_contract.functions.hdrnStakes(POLY_CONTRACT_ADDRESS).call(None,from_block)
+  print(stakePoints)
+  return stakePoints
+@anvil.server.callable
+def resave(start, end):
+  for n in range(start, end+1):
+    save_treasury_value(day=n)
 
 @anvil.server.callable
 @anvil.server.background_task
@@ -57,9 +74,12 @@ def save_treasury_value(day = None):
   icsa_contract = w3.eth.contract(address=ICSA_CONTRACT_ADDRESS, abi=ICSA_ABI)
   today = icsa_contract.functions.currentDay().call()
   last_full_day = today if day is None else day
+  
   data = {}
   stakeStart, capitalAdded, stakePoints, isActive , payoutPreCapitalAddIcsa, payoutPreCapitalAddHdrn, stakeAmount, minStakeLength = icsa_contract.functions.hdrnStakes(POLY_CONTRACT_ADDRESS).call()
-  
+  if last_full_day<292:
+    stakePoints = 555545247999966
+    
   data['Liquid HDRN'] = hdrn_contract.functions.balanceOf(POLY_CONTRACT_ADDRESS).call() / (10**9)
   data['Staked HDRN'] = stakeAmount / (10**9)
   data['Total HDRN'] = data['Liquid HDRN'] + data['Staked HDRN']

@@ -45,12 +45,12 @@ class dash_copy(dash_copyTemplate):
     backing_value = (hdrn_value + icsa_value)/self.data['POLY Supply']
 
     dd['Treasury Value'] = {"c":self.custom_1 , 'content':"${:,}".format(int(hdrn_value + icsa_value))}
-    dd['Total HDRN'] = {"c":self.custom_2 , 'content':"{:,}".format(int(self.data['Total HDRN']))}
+    dd['Total HDRN'] = {"c":self.custom_2 , 'content':"{:,.2f} B".format(self.data['Total HDRN']/(10**9))}
     dd['Total ICSA'] = {"c":self.custom_3 , 'content':"{:,.1f}".format(self.data['ICSA Yield'])}
-    dd['POLY Supply'] = {"c":self.custom_4 , 'content':"{:,}".format(int(self.data['POLY Supply']))}
+    dd['POLY Supply'] = {"c":self.custom_4 , 'content':"{:,.2f} B".format(self.data['POLY Supply']/(10**9))}
     dd['HDRN Value'] = {"c":self.custom_5 , 'content':"${:,}".format(int(hdrn_value))}
     dd['ICSA Value'] = {"c":self.custom_6 , 'content':"${:,}".format(int(icsa_value))}
-    dd['POLY Market Price'] = {"c":self.custom_7, 'content':"${:.8f}".format(poly_price)}
+    dd['POLY Price'] = {"c":self.custom_7, 'content':"${:.8f}".format(poly_price)}
     dd['Backing Value'] = {"c":self.custom_8, 'content':"${:.8f}".format(backing_value)}
     if poly_price > backing_value:
       # 150 / 100

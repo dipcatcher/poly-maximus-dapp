@@ -3,7 +3,7 @@ scheduled_tasks:
   time_spec:
     n: 1
     every: day
-    at: {minute: 5, hour: 0}
+    at: {minute: 10, hour: 0}
   job_id: HKBVNNHK
 - task_name: get_prices
   time_spec:

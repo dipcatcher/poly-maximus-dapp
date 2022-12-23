@@ -19,7 +19,7 @@ class dash_copy(dash_copyTemplate):
 
     # Any code you write here will run when the form opens.
   def show_daily_data(self):
-    all_days= app_tables.daily_data.search()
+    all_days= app_tables.daily_data.search(tables.order_by('Day', ascending=True))
     n = 0
     display = []
     for day in all_days:
@@ -31,6 +31,7 @@ class dash_copy(dash_copyTemplate):
       n+=1
       d['Total ICSA'] = "{:,.2f}".format(day['ICSA Yield'])
       display.append(d)
+    display.reverse()
     self.repeating_panel_1.items=display
     
   def form_show(self, **event_args):

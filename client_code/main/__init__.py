@@ -32,8 +32,12 @@ class main(mainTemplate):
       start = self.link_water
     else:
       start = self.link_mint
+    if 'embed' in get_url_hash():
+      open_form('dash_copy')
+    else:
+      self.menu_click(sender=start)
     
-    self.menu_click(sender=start)
+      
   
     
 

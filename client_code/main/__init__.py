@@ -33,8 +33,13 @@ class main(mainTemplate):
     else:
       start = self.link_mint
     if 'embed' in get_url_hash():
-      open_form('dash_copy')
+      '''self.clear()
+      from ..dash_embed import dash_embed
+      self.add_component(dash_embed())'''
+      self.do_embed = True
+      
     else:
+      self.do_embed=False
       self.menu_click(sender=start)
     
       
@@ -107,5 +112,11 @@ class main(mainTemplate):
 
   def getCurrentDay(self):
     return self.poly_contract_read.getCurrentDay().toNumber()
+
+  def form_show(self, **event_args):
+    """This method is called when the HTML panel is shown on the screen"""
+    if self.do_embed:
+      open_form('dash_embed')
+
 
   

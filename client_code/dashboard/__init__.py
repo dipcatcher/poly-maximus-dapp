@@ -77,7 +77,10 @@ class dashboard(dashboardTemplate):
     self.daily_data = app_tables.latest_day.get(name='latest')['daily_data']
     self.ae = address_entry(dashboard_form = self)
     self.column_panel_2.add_component(self.ae)
-    self.address = get_open_form().address
+    try:
+      self.address = get_open_form().address
+    except:
+      self.address=None
     self.ae.text_box_1.text = self.address
     if self.address is None:
       pass

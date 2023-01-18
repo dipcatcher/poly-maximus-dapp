@@ -11,7 +11,7 @@ components:
   layout_properties: {grid_position: 'MIJMMO,XVEGMV'}
   components:
   - type: FlowPanel
-    properties: {role: null, spacing: huge, align: center, tooltip: '', border: '',
+    properties: {role: null, spacing: tiny, align: center, tooltip: '', border: '',
       foreground: '', visible: true, spacing_above: small, spacing_below: small, background: ''}
     name: flow_panel_1
     layout_properties: {grid_position: 'OAITLQ,HVZXHZ'}
@@ -32,7 +32,8 @@ components:
       layout_properties: {column: CRXTCB, grid_position: 'DYEKCP,DRMZXA', expand: true,
         width: null}
   - type: FlowPanel
-    properties: {}
+    properties: {role: null, spacing: tiny, align: left, tooltip: '', border: '',
+      foreground: '', visible: true, spacing_above: small, spacing_below: small, background: ''}
     name: flow_panel_2
     layout_properties: {grid_position: 'RQXNRY,BVWLUE'}
     components:
@@ -59,7 +60,8 @@ components:
   layout_properties: {grid_position: 'ZIHLLD,NQZSKQ'}
   components:
   - type: FlowPanel
-    properties: {}
+    properties: {role: null, spacing: tiny, align: left, tooltip: '', border: '',
+      foreground: '', visible: true, spacing_above: small, spacing_below: small, background: ''}
     name: flow_panel_3
     layout_properties: {grid_position: 'XISPLF,UQJJJZ'}
     components:
@@ -78,10 +80,6 @@ components:
       name: custom_9
       layout_properties: {column: CRXTCB, grid_position: 'NVMOKM,GMURMS', expand: true,
         width: null}
-  - type: form:chart
-    properties: {}
-    name: custom_11
-    layout_properties: {grid_position: 'GMPGQT,TJIRPF'}
 - type: ColumnPanel
   properties: {role: tonal-card, tooltip: '', border: '', foreground: '', visible: true,
     wrap_on: mobile, col_spacing: medium, spacing_above: small, col_widths: '{}',

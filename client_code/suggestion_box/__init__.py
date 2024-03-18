@@ -38,7 +38,7 @@ class suggestion_box(suggestion_boxTemplate):
         Notification('Thank you, your suggestion has been submitted.', style='Success').show()
         get_open_form().menu_click(sender=get_open_form().link_suggestion_box)
     except:
-      alert("Only users logged in with Ethereum can pass suggestions to the Executor. Make sure you are on a browser that supports MetaMask and make sure you are connected to the dapp.", title="Unable to Send Suggestion")
+      alert("Make sure you are on a browser that supports MetaMask and make sure you are connected to the dapp.", title="Unable to Send Suggestion")
 
   def link_1_click(self, **event_args):
     """This method is called when the link is clicked"""

@@ -26,7 +26,7 @@ components:
       layout_properties: {grid_position: 'ZJGPZE,DOFOOF'}
     - type: Label
       properties: {role: null, align: center, tooltip: '', border: '', foreground: '#7C7f91',
-        visible: true, text: Give suggestions and ideas to the Poly Maximus Executor regarding bid execution strategy.,
+        visible: true, text: General Purpose Signature Verification tool used by the Maximus Ecosystem,
         font_size: 16, font: '', spacing_above: small, icon_align: left, spacing_below: small,
         italic: false, background: '', bold: false, underline: false, icon: ''}
       name: label_days_remaining
@@ -35,20 +35,10 @@ components:
       properties: {col_widths: '{}'}
       name: column_panel_1
       layout_properties: {grid_position: 'THUCIN,ERILKY'}
-      components:
-      - type: Label
-        properties: {role: null, align: left, tooltip: '', border: '', foreground: white,
-          visible: true, text: 'Which liquidation do you think the Executor should
-            target?', font_size: 16, font: '', spacing_above: small, icon_align: left,
-          spacing_below: small, italic: false, background: '', bold: false, underline: false,
-          icon: ''}
-        name: label_days_remaining_copy
-        layout_properties:
-          col_widths: {}
-          grid_position: VTTWYS,EXQRTD
+      components: []
     - type: RichText
       properties: {role: link-no-pad, align: left, tooltip: '', enable_slots: true,
-        border: '', foreground: '', visible: true, font_size: null, content: 'Liquidation
+        border: '', foreground: '', visible: false, font_size: null, content: 'Liquidation
           ID {i}', font: '', spacing_above: small, spacing_below: none, data: null,
         background: '', format: restricted_html}
       name: rich_text_1
@@ -65,7 +55,7 @@ components:
         event_bindings: {click: link_1_click}
     - type: TextBox
       properties: {role: null, align: left, hide_text: false, tooltip: '', placeholder: '',
-        border: '', enabled: true, foreground: '', visible: true, text: '', font_size: null,
+        border: '', enabled: true, foreground: '', visible: false, text: '', font_size: null,
         font: '', spacing_above: small, type: number, spacing_below: small, italic: false,
         background: '', bold: false, underline: false}
       name: text_box_liquidation_id
@@ -73,46 +63,56 @@ components:
       event_bindings: {change: text_box_liquidation_id_change}
     - type: Label
       properties: {role: null, align: center, tooltip: '', border: '', foreground: '',
-        visible: true, text: '- OR -', font_size: null, font: '', spacing_above: none,
+        visible: false, text: '- OR -', font_size: null, font: '', spacing_above: none,
         icon_align: left, spacing_below: none, italic: false, background: '', bold: false,
         underline: false, icon: ''}
       name: label_5
       layout_properties: {grid_position: 'ILNGKG,EESQSV'}
     - type: Label
       properties: {role: null, align: left, tooltip: '', border: '', foreground: '',
-        visible: true, text: HSI Address, font_size: null, font: '', spacing_above: small,
+        visible: false, text: HSI Address, font_size: null, font: '', spacing_above: small,
         icon_align: left, spacing_below: small, italic: false, background: '', bold: false,
         underline: false, icon: ''}
       name: label_4
       layout_properties: {grid_position: 'MZTUEO,NDXBHH'}
     - type: TextBox
       properties: {role: null, align: left, hide_text: false, tooltip: '', placeholder: '',
-        border: '', enabled: true, foreground: '', visible: true, text: '', font_size: null,
+        border: '', enabled: true, foreground: '', visible: false, text: '', font_size: null,
         font: '', spacing_above: small, type: text, spacing_below: small, italic: false,
         background: '', bold: false, underline: false}
       name: text_box_hsi_address
       layout_properties: {grid_position: 'OTHZRS,LAHTKV'}
     - type: Label
       properties: {role: null, align: left, tooltip: '', border: '', foreground: '',
-        visible: true, text: Maximum HDRN Bid Amount, font_size: null, font: '', spacing_above: small,
-        icon_align: left, spacing_below: small, italic: false, background: '', bold: false,
-        underline: false, icon: ''}
+        visible: false, text: Maximum HDRN Bid Amount, font_size: null, font: '',
+        spacing_above: small, icon_align: left, spacing_below: small, italic: false,
+        background: '', bold: false, underline: false, icon: ''}
       name: label_3
       layout_properties: {grid_position: 'UJIMIR,YAUOHL'}
     - type: TextBox
       properties: {role: null, align: left, hide_text: false, tooltip: '', placeholder: '',
-        border: '', enabled: true, foreground: '', visible: true, text: '', font_size: null,
+        border: '', enabled: true, foreground: '', visible: false, text: '', font_size: null,
         font: '', spacing_above: small, type: number, spacing_below: small, italic: false,
         background: '', bold: false, underline: false}
       name: text_box_bid_amount
       layout_properties: {grid_position: 'PZYHWG,XTITRU'}
+    - type: Label
+      properties: {role: null, align: left, tooltip: '', border: '', foreground: white,
+        visible: true, text: "For GOFURS on Solana, include:\n- TX Hash (block explorer\
+          \ link) of your ETH, PLS, or GOFURS deposit\n- SOL address generated at\
+          \ phantom.app \n\nmake sure you're connected from the same address that\
+          \ your deposit was made from.\n", font_size: 16, font: '', spacing_above: small,
+        icon_align: left, spacing_below: small, italic: false, background: '', bold: false,
+        underline: false, icon: ''}
+      name: label_days_remaining_copy
+      layout_properties: {grid_position: 'RNCJAO,NZAYIG'}
     - type: Label
       properties: {role: null, align: left, tooltip: '', border: '', foreground: '',
         visible: true, text: Notes, font_size: null, font: '', spacing_above: small,
         icon_align: left, spacing_below: small, italic: false, background: '', bold: false,
         underline: false, icon: ''}
       name: label_6
-      layout_properties: {grid_position: 'CPWPBN,ZRTQUA'}
+      layout_properties: {grid_position: 'DPAFBB,FYOZVV'}
     - type: TextArea
       properties: {height: 110}
       name: text_area_notes

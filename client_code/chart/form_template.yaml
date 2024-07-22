@@ -1,9 +1,15 @@
 container:
   type: HtmlTemplate
-  properties: {tooltip: '', background: '', foreground: '', border: '', visible: true,
-    role: null, html: "<center style=\"font-family: Montserrat; color:#888; margin:\
-      \ 0;\">\n  <div class=\"nomics-ticker-widget\" data-name=\"Poly\" data-base=\"\
-      POLY4\" data-quote=\"HDRN\"></div><script src=\"https://widget.nomics.com/embed.js\"\
-      ></script>\n</center>"}
+  properties:
+    tooltip: ''
+    background: ''
+    foreground: ''
+    border: ''
+    visible: true
+    role: null
+    html: |-
+      <center style="font-family: Montserrat; color:#888; margin: 0;">
+        <div class="nomics-ticker-widget" data-name="Poly" data-base="POLY4" data-quote="HDRN"></div><script src="https://widget.nomics.com/embed.js"></script>
+      </center>
 components: []
 is_package: true
